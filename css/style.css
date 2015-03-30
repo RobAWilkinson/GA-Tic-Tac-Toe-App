@@ -2,16 +2,21 @@ body {
   background-color: #0487D9;
 }
 
+.header {
+  margin: auto;
+  color:white;
+  font-size: 200%;
+  text-align: center;
+  text-shadow:10px 10px 10px black;
+  letter-spacing: 15px;
+}
+
 .gameboard {
   margin: auto;
   height: 500px;
   width: 500px;
   /*background-color: blue;*/
-  padding-top:100px;
-}
-
-#header {
-  font-size: 100%;
+  /*padding-top:100px;*/
 }
 
 #col1, #col2 ,#col3 {
@@ -75,6 +80,6 @@ body {
   letter-spacing: 25px;
   text-shadow:8px 8px 8px black;
   box-shadow: 15px 15px 50px black;
-  outline: 0px;
+  outline: 0;
 }
 
