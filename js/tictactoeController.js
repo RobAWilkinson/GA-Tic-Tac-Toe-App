@@ -7,10 +7,9 @@
   function tictactoeController() {
 
     var self = this;
-    self.currentTurn = "";
+    self.currentTurn = '';
     self.playerOne = 'X';
     self.playerTwo = 'O';
-    self.playerMove = null;
     self.winner = '';
     // self.resetbtn = "";
     self.boxes = [
@@ -32,38 +31,58 @@
 
 
     self.clickbox = function($index) {
+      //console.log(self.boxes[$index].value + "check");
       if(self.boxes[$index].value === undefined) {
+
         self.boxes[$index].value = self.currentTurn;
+        self.boxes[$index].square = self.currentTurn;
           if(self.currentTurn === "X") {
             self.currentTurn = "O";
             } else {
             self.currentTurn = "X";
             }
-          } else {
+          }
+          else {
           console.log("Already Taken! Choose Another Square!");
           }
-          console.log(self.boxes[$index]);
+          self.winner();
+          // console.log(self.boxes[$index]);
+          // console.log(self.boxes[$index].square);
     };
-
-    self.playerMove = function() {
-
-
-    };
-
 
 
     self.winner = function() {
+      if(self.boxes[0].square == "X" && self.boxes[1].square == "X" && self.boxes[2].square == "X") {
+        alert ("X WINS!");
+      } else if (self.boxes[3].square == "X" && self.boxes[4].square == "X" && self.boxes[5].square == "X") {
+        alert  ("X WINS!");
+      } else if (self.boxes[6].square == "X" && self.boxes[7].square == "X" && self.boxes[8].square == "X" ){
+        alert  ("X WINS!");
+      } else if (self.boxes[1].square == "X" && self.boxes[4].square == "X" && self.boxes[8].square == "X" ){
+        alert  ("X WINS!");
+      } else if (self.boxes[0].square == "O" && self.boxes[1].square == "O" && self.boxes[2].square == "O" ){
+        alert  ("O WINS!");
+      } else if (self.boxes[3].square == "O" && self.boxes[4].square == "O" && self.boxes[5].square == "O" ){
+        alert  ("O WINS!");
+      } else if (self.boxes[6].square == "O" && self.boxes[7].square == "O" && self.boxes[8].square == "O" ){
+        alert  ("O WINS!");
+      } else if (self.boxes[1].square == "O" && self.boxes[4].square == "O" && self.boxes[8].square == "O" ){
+        alert  ("O WINS!");
+      }
 
-    };
 
-    self.resetbtn = function() {
-      console.log("hello");
-    };
+    // self.resetbtn = function() {
+    //   console.log("hello");
+    // };
+    // var a;
+    // var b;
+    // var c;
+    // if(a === b && a ==c && b ==c && a != null)
+    //   return a;
 
+  };
 
-  }
-
-
+}
 
 
 })();
