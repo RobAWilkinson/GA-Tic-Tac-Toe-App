@@ -1,87 +1,80 @@
+// IIFE
 (function() {
 
   angular
     .module("myApp",[])
     .controller("tictactoeController", tictactoeController);
 
+// Controller
   function tictactoeController() {
 
+// Capture Variable
     var self = this;
+
     self.currentTurn = '';
     self.playerOne = 'X';
     self.playerTwo = 'O';
     self.winner = '';
-    // self.resetbtn = "";
+
+// Gameboard
     self.boxes = [
       {square: 1},{square: 2},{square: 3},
       {square: 4},{square: 5},{square: 6},
       {square: 7},{square: 8},{square: 9},
     ];
 
-      self.random = function () {
-      if(Math.random() > 0.5) {
-        console.log("Player One GO!");
-        self.currentTurn = "X";
-      } else {
-        console.log("Player Two GO!");
-          self.currentTurn = "O";
-      }
+// Picks Random Player To Be X or O
+    self.random = function () {
+     if(Math.random() > 0.5) {
+      console.log("Player One GO!");
+      self.currentTurn = "X";
+     } else {
+      console.log("Player Two GO!");
+      self.currentTurn = "O";
+     }
     };
+
     self.random();
 
-
+// Clickbox Function
     self.clickbox = function($index) {
       //console.log(self.boxes[$index].value + "check");
       if(self.boxes[$index].value === undefined) {
-
         self.boxes[$index].value = self.currentTurn;
         self.boxes[$index].square = self.currentTurn;
           if(self.currentTurn === "X") {
             self.currentTurn = "O";
-            } else {
+          } else {
             self.currentTurn = "X";
-            }
           }
-          else {
-          console.log("Already Taken! Choose Another Square!");
+          } else {
+            alert("Already Taken! Choose Another Square!");
           }
+// Check for winner after each click
           self.winner();
-          // console.log(self.boxes[$index]);
-          // console.log(self.boxes[$index].square);
     };
 
+// Winner Fucntion
+    self.winner = function(input) {
 
-    self.winner = function() {
-      if(self.boxes[0].square == "X" && self.boxes[1].square == "X" && self.boxes[2].square == "X") {
-        alert ("X WINS!");
-      } else if (self.boxes[3].square == "X" && self.boxes[4].square == "X" && self.boxes[5].square == "X") {
-        alert  ("X WINS!");
-      } else if (self.boxes[6].square == "X" && self.boxes[7].square == "X" && self.boxes[8].square == "X" ){
-        alert  ("X WINS!");
-      } else if (self.boxes[1].square == "X" && self.boxes[4].square == "X" && self.boxes[8].square == "X" ){
-        alert  ("X WINS!");
-      } else if (self.boxes[0].square == "O" && self.boxes[1].square == "O" && self.boxes[2].square == "O" ){
-        alert  ("O WINS!");
-      } else if (self.boxes[3].square == "O" && self.boxes[4].square == "O" && self.boxes[5].square == "O" ){
-        alert  ("O WINS!");
-      } else if (self.boxes[6].square == "O" && self.boxes[7].square == "O" && self.boxes[8].square == "O" ){
-        alert  ("O WINS!");
-      } else if (self.boxes[1].square == "O" && self.boxes[4].square == "O" && self.boxes[8].square == "O" ){
-        alert  ("O WINS!");
+  // Row Wins
+      if((self.boxes[0].square == input && self.boxes[1].square == input && self.boxes[2].square == input) || (self.boxes[3].square == input && self.boxes[4].square == input && self.boxes[5].square == input) || (self.boxes[6].square == input && self.boxes[7].square == input && self.boxes[8].square == input))  {
+        alert (input + "WINS!");
+
+  // Column Wins
+      } else if ((self.boxes[0].square == input && self.boxes[3].square == input && self.boxes[6].square == input) || (self.boxes[1].square == input && self.boxes[4].square == input && self.boxes[7].square == input) || (self.boxes[2].square == input && self.boxes[5].square == input && self.boxes[8].square == input)) {
+        alert (input + "WINS!");
+
+  // Diagonal Wins
+      } else if ((self.boxes[0].square == input && self.boxes[4].square == input && self.boxes[8].square == input) || (self.boxes[2].square == input && self.boxes[4].square == input && self.boxes[6].square == input)) {
+        alert  (input + "WINS!");
       }
+};
 
-
-    // self.resetbtn = function() {
-    //   console.log("hello");
-    // };
-    // var a;
-    // var b;
-    // var c;
-    // if(a === b && a ==c && b ==c && a != null)
-    //   return a;
-
-  };
-
+  // Reset Game Button
+    self.resetbtn = function() {
+      console.log("hello");
+    };
 }
 
 

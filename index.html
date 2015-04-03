@@ -6,11 +6,12 @@
   <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="css/animate.css">
 </head>
 
 <body ng-controller="tictactoeController as ttt">
 
-  <div class="header">
+  <div class="header animated zoomIn">
     <h1>Tic-Tac-Toe</h1>
   </div>
 
@@ -18,8 +19,8 @@
 
 <!-- Tic Tac Toe Gameboard -->
   <div class="gameboard">
-    <div class="row1" ng-repeat="box in ttt.boxes" ng-click="ttt.clickbox($index)">{{box.value}}</div>
-    <button type="button" id="resetbtn" ng-click="ttt.resetbtn()">RESET</input>
+    <div class="row1 animated rotateIn" ng-repeat="box in ttt.boxes" ng-click="ttt.clickbox($index)">{{box.value}}</div>
+    <button type="button" class="resetbtn animated zoomInDown" ng-click="ttt.resetbtn()">RESET</input>
   </div>
 
 
