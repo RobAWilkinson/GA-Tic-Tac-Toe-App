@@ -51,7 +51,7 @@
             alert("Already Taken! Choose Another Square!");
           }
 // Check for winner after each click
-          self.winner();
+          self.winner(self.boxes[$index].value);
     };
 
 // Winner Fucntion
