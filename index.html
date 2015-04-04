@@ -11,7 +11,7 @@
 
 <body ng-controller="tictactoeController as ttt">
 
-  <div class="header animated zoomIn">
+  <div class="header animated tada">
     <h1>Tic-Tac-Toe</h1>
   </div>
 
@@ -19,7 +19,7 @@
 
 <!-- Tic Tac Toe Gameboard -->
   <div class="gameboard">
-    <div class="row1 animated rotateIn" ng-repeat="box in ttt.boxes" ng-click="ttt.clickbox($index)">{{box.value}}</div>
+    <div class="row1 animated rotateIn" ng-repeat="box in ttt.boxes" ng-click="ttt.clickbox($index)" >{{box.value}}</div>
     <button type="button" class="resetbtn animated zoomInDown" ng-click="ttt.resetbtn()">RESET</input>
   </div>
 
