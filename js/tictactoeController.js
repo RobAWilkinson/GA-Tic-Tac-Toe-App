@@ -10,7 +10,7 @@
 
 // Capture Variable
     var self = this;
-
+    var hasMoves = false;
     self.currentTurn = '';
     self.playerOne = 'X';
     self.playerTwo = 'O';
@@ -26,10 +26,10 @@
 // Picks Random Player To Be X or O
     self.random = function () {
      if(Math.random() > 0.5) {
-      console.log("Player One GO!");
+      alert("Player One GO!");
       self.currentTurn = "X";
      } else {
-      console.log("Player Two GO!");
+      alert("Player Two GO!");
       self.currentTurn = "O";
      }
     };
@@ -49,31 +49,48 @@
           }
           } else {
             alert("Already Taken! Choose Another Square!");
-          }
+        }
+
+
 // Check for winner after each click
           self.winner(self.boxes[$index].value);
-    };
+};
+//       self.boxes.forEach(function(box, index) {
+//         if(box.square != self.playerOne && box.square != self.playerTwo) {
+//           hasMoves = true;
+//     }
+//  else if(! hasMoves) {
+//     alert  ("No more moves!");
+// }
+//     });
 
 // Winner Fucntion
     self.winner = function(input) {
 
   // Row Wins
       if((self.boxes[0].square == input && self.boxes[1].square == input && self.boxes[2].square == input) || (self.boxes[3].square == input && self.boxes[4].square == input && self.boxes[5].square == input) || (self.boxes[6].square == input && self.boxes[7].square == input && self.boxes[8].square == input))  {
-        alert (input + "WINS!");
+        alert (input + " WINS!");
 
   // Column Wins
       } else if ((self.boxes[0].square == input && self.boxes[3].square == input && self.boxes[6].square == input) || (self.boxes[1].square == input && self.boxes[4].square == input && self.boxes[7].square == input) || (self.boxes[2].square == input && self.boxes[5].square == input && self.boxes[8].square == input)) {
-        alert (input + "WINS!");
+        alert (input + " WINS!");
 
   // Diagonal Wins
       } else if ((self.boxes[0].square == input && self.boxes[4].square == input && self.boxes[8].square == input) || (self.boxes[2].square == input && self.boxes[4].square == input && self.boxes[6].square == input)) {
-        alert  (input + "WINS!");
+        alert  (input + " WINS!");
+
+
+  // No Winner
       }
 };
 
   // Reset Game Button
     self.resetbtn = function() {
-      console.log("hello");
+      self.boxes.forEach(function(box, index) {
+        self.boxes[index].value = ' ';
+        self.boxes[index].square = index;
+      });
+
     };
 }
 
