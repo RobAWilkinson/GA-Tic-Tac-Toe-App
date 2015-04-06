@@ -87,7 +87,7 @@
   // Reset Game Button
     self.resetbtn = function() {
       self.boxes.forEach(function(box, index) {
-        self.boxes[index].value = ' ';
+        self.boxes[index].value = undefined;
         self.boxes[index].square = index;
       });
 
